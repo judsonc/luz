@@ -21,8 +21,9 @@
 #define evento "/post/dispositivo/"
 #define uuid_dispositivo "lampada001"
 #define debugar true
-#define luz D4
-#define off HIGH
+#define luz D1
+#define off LOW
+
 
 void light(int );
 
@@ -66,7 +67,7 @@ void setup() {
   ArduinoOTA.setHostname("myesp8266");
 
   // No authentication by default
-  ArduinoOTA.setPassword((const char *)"sds");
+  //  ArduinoOTA.setPassword((const char *)"sds");
 
   ArduinoOTA.onStart([]() {
     Serial.println("Start");
@@ -128,7 +129,7 @@ void loop() {
 
 
 void light(String state) {
-  int intensidade = state.toInt()-255;
+  int intensidade = state.toInt();
   Serial.println("\n\n[STRING]\t" + state + "\n\n");
   Serial.println(intensidade);
   Serial.println("[light] " + state);
