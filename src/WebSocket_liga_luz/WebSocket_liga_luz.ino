@@ -16,7 +16,7 @@ StaticJsonBuffer<100> jsonBuffer;
 
 SocketIOClient socket;
 
-char host[] = "saiot.ect.ufrn.br";
+char host[] = "api.saiot.ect.ufrn.br";
 int port = 80;
 
 extern String RID;
@@ -36,7 +36,7 @@ void light(String state) {
   int intensidade = state.toInt(); //caso chegue uma string usar .toInt()
   if (intensidade == 0) {
     Serial.println("DESLIGOU");
-    digitalWrite(luz, LOW);
+    //digitalWrite(luz, LOW); não adianta
     analogWrite(luz, intensidade);
   }
   else if (intensidade > 0 && intensidade < 256) {
